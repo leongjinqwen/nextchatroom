@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 
 
 export default class Conversation extends React.Component {
@@ -27,7 +28,7 @@ export default class Conversation extends React.Component {
                                 <div style={{marginBottom:'20px' }}> 
                                     <div className="text-primary mb-1"><img width="30" height="30" className="d-inline border rounded-circle" src={`https://api.adorable.io/avatars/40/${chat.username}.png`} alt="profilepic" />{chat.username}</div>
                                     <div className="d-inline-block border rounded"><pre style={{border:'#e8e8e8',background:'#e6f7ff',fontFamily:'Roboto',fontSize:'18px' ,padding:2,whiteSpace:'pre-wrap',wordBreak:'break-word' ,marginBottom:0}} >{chat.message}</pre></div>             
-                                    <small className="d-block text-muted">{chat.timestamp}</small>
+                                    <small className="d-block text-muted">{moment(chat.timestamp).calendar()}</small>
                                 </div>
                             </div>
                         )    

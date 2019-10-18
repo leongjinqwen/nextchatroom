@@ -4,7 +4,6 @@ import { Layout } from 'antd';
 import Chatbox from './Chatbox'
 import Conversation from './Conversation';
 import Userlist from './Userlist';
-import moment from 'moment'
 import Socket from './utils/socket'
 
 const {Header, Content, Sider} = Layout;
@@ -36,7 +35,7 @@ class App extends Component {
     handleSubmit=(e)=> {
       
           e.preventDefault()
-          let time = moment(Date.now()).calendar()
+          let time = Date.now()
           const newMessage = {username:this.state.myUser.username, message:this.state.messages.trim(),timestamp:time}
           Socket.emit('BROADCAST_MESSAGE', newMessage)
           this.setState({messages:''})   
